@@ -15,7 +15,7 @@ export function debounce<F extends (...args: any[]) => void>(func: F, delay: num
   return function (this: ThisParameterType<F>, ...args) {
     clearTimeout(timerId)
 
-    timerId = setTimeout(() => {
+    timerId = window.setTimeout(() => {
       func.apply(this, args)
     }, delay)
   }
